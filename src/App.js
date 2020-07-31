@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
 import Podcasts from './Podcasts.js';
-import FilePlayer from 'react-player/lib/players/FilePlayer';
+import ReactPlayer from 'react-player/file';
 
 class App extends Component {
   constructor(props) {
@@ -19,6 +19,7 @@ class App extends Component {
   }
 
   handleClick(url, selected, e) {
+    console.log(url);
     this.setState(
       {
         url: url,
@@ -43,13 +44,11 @@ class App extends Component {
   }
 
   render() {
-    const spacer = <div className="mediaPlayer"></div>
-
     if (!this.state.isLoaded) {
       return (
         <div className="App">
           <div>Loading</div>
-          <div class="lds-facebook"><div></div><div></div><div></div></div>
+          <div className="lds-facebook"><div></div><div></div><div></div></div>
         </div>
       );
     } else {
@@ -63,9 +62,17 @@ class App extends Component {
             </div>
           </div>
 
-          {!this.state.playing ? spacer : "" /* Reserve space for FilePlayer until url is loaded */}
-          <FilePlayer className="mediaPlayer" url={this.state.url} controls 
-            playing={this.state.playing} height="40px" width="100%"/>
+          <ReactPlayer className="mediaPlayer" url={this.state.url} 
+            playing={this.state.playing} height="40px" width="100%"
+            config={{
+              forceAudio: true,
+              attributes: {
+                height: "40px",
+                width: "100%",
+                controls: true
+              },
+              tracks: []
+            }}/> 
 
           <Podcasts items={this.state.rss.channel.item} 
             clickFunc={this.handleClick}

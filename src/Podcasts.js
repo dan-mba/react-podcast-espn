@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import './Podcasts.css';
 
+function convertDuration(time) {
+  var min = Math.floor(time / 60);
+  var sec = time % 60;
+
+  return min + ":" + sec;
+}
+
 class Podcasts extends Component {
   render() {
     var arr;
@@ -20,7 +27,7 @@ class Podcasts extends Component {
         <div>{item.title}</div>
         <div className="PodDesc">
           {typeof item.description === 'object' ? item.description._ : item.description}<br/>
-          ( {item["itunes:duration"]} )
+          ( {convertDuration(item["itunes:duration"])} )
         </div>
       </div>
     );
