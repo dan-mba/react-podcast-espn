@@ -7,7 +7,7 @@
     "axios": "^0.19.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-player": "^2.6.0"
+    "react-player": "^2.6.1"
   },
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",
