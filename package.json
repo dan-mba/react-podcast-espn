@@ -24,8 +24,8 @@
     ">2%"
   ],
   "devDependencies": {
-    "eslint": "^7.23.0",
-    "eslint-plugin-react": "^7.23.1",
+    "eslint": "^7.25.0",
+    "eslint-plugin-react": "^7.23.2",
     "shx": "^0.3.3"
   }
 }
