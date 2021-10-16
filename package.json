@@ -4,28 +4,24 @@
   "homepage": ".",
   "private": true,
   "dependencies": {
-    "axios": "^0.22.0",
+    "axios": "^0.23.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-player": "^2.9.0",
-    "react-scripts": "^4.0.3"
+    "react-player": "^2.9.0"
   },
   "scripts": {
-    "analyze": "source-map-explorer 'build/static/js/*.js'",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "prebuild": "shx rm -rf docs/*",
-    "postbuild": "shx cp -r build/. docs"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview --port 8080"
   },
   "browserslist": [
     ">2%"
   ],
   "devDependencies": {
-    "eslint": "^7.32.0",
-    "eslint-plugin-react": "^7.26.1",
-    "shx": "^0.3.3"
+    "eslint": "^8.0.1",
+    "eslint-plugin-react": "^7.25.1",
+    "@vitejs/plugin-react": "^1.0.0",
+    "vite-plugin-html": "^2.1.1",
+    "vite": "^2.6.4"
   }
 }

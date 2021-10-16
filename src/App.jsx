@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ReactPlayer from 'react-player/file';
-import Podcasts from './Podcasts.js';
+import Podcasts from './Podcasts';
 import './App.css';
 
 export default function App() {
