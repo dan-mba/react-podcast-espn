@@ -19,7 +19,7 @@
   ],
   "devDependencies": {
     "eslint": "^8.0.1",
-    "eslint-plugin-react": "^7.25.1",
+    "eslint-plugin-react": "^7.26.1",
     "@vitejs/plugin-react": "^1.0.5",
     "vite-plugin-html": "^2.1.1",
     "vite": "^2.6.10"
