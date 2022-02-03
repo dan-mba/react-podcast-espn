@@ -18,10 +18,10 @@
     ">2%"
   ],
   "devDependencies": {
-    "eslint": "^8.0.1",
+    "eslint": "^8.8.0",
     "eslint-plugin-react": "^7.28.0",
     "@vitejs/plugin-react": "^1.1.4",
-    "vite-plugin-html": "^2.1.2",
+    "vite-plugin-html": "^3.0.3",
     "vite": "^2.7.13"
   }
 }
