@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import ReactPlayer from 'react-player/file';
 import Podcasts from './Podcasts';
 import './App.css';
@@ -10,7 +9,7 @@ export default function App() {
   let [selected, setSelected] = useState(-1);
   let [playing, setPlaying] = useState(false);
   
-  function handleClick(url, selectedItem, e) {
+  function handleClick(url, selectedItem) {
     setUrl(url)
     setPlaying(true);
     setSelected(selectedItem)
@@ -18,14 +17,11 @@ export default function App() {
 
   /* Retrieve the JSON version of the RSS feed from the back-end & overcome CORS  */
   useEffect(() => {
-    axios.get("https://flannel-glade.glitch.me", {
-      params: {
-        rss: "http://www.espn.com/espnradio/feeds/rss/podcast.xml?id=2942325"
-      }
-    })
-    .then((response) => {
-      setRss(response.data.rss);
-    })
+    fetch('https://flannel-glade.glitch.me/?' + new URLSearchParams({
+      rss: 'http://www.espn.com/espnradio/feeds/rss/podcast.xml?id=2942325'
+    }).toString())
+      .then(response => response.json())
+      .then(data => setRss(data.rss))
   }, []);
 
   if (rss.length === 0) {
