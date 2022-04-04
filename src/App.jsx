@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import ReactPlayer from 'react-player/file';
 import Podcasts from './Podcasts';
 import './App.css';
@@ -7,11 +7,9 @@ export default function App() {
   let [rss, setRss] = useState([]);
   let [url, setUrl] = useState('');
   let [selected, setSelected] = useState(-1);
-  let [playing, setPlaying] = useState(false);
-  
+    
   function handleClick(url, selectedItem) {
     setUrl(url)
-    setPlaying(true);
     setSelected(selectedItem)
   }
 
@@ -43,7 +41,7 @@ export default function App() {
         </div>
 
        <ReactPlayer className="mediaPlayer" url={url} 
-          playing={playing} height="40px" width="100%"
+          height="40px" width="100%"
           config={{
             forceAudio: true,
             attributes: {

@@ -1,4 +1,3 @@
-import React from 'react';
 import './Podcasts.css';
 
 function convertDuration(time) {
