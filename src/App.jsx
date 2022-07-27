@@ -4,7 +4,8 @@ import Podcasts from './Podcasts';
 import './App.css';
 
 export default function App() {
-  let [rss, setRss] = useState([]);
+  let [rss, setRss] = useState(undefined);
+  let [updating, setUpdating] = useState(false);
   let [url, setUrl] = useState('');
   let [selected, setSelected] = useState(-1);
     
@@ -15,14 +16,27 @@ export default function App() {
 
   /* Retrieve the JSON version of the RSS feed from the back-end & overcome CORS  */
   useEffect(() => {
-    fetch('https://flannel-glade.glitch.me/?' + new URLSearchParams({
-      rss: 'http://www.espn.com/espnradio/feeds/rss/podcast.xml?id=2942325'
-    }).toString())
-      .then(response => response.json())
-      .then(data => setRss(data.rss))
+    async function fetchData() {
+      const data = await fetch('https://flannel-glade.glitch.me/?' + new URLSearchParams({
+        rss: 'http://www.espn.com/espnradio/feeds/rss/podcast.xml?id=2942325'
+      }).toString());
+      const json = await data.json();
+      localStorage.setItem('espn-podcasts', JSON.stringify(json.rss));
+      setRss(json.rss);
+      setUpdating(false);
+    }
+
+    const podcasts = localStorage.getItem('espn-podcasts');
+    if (podcasts) {
+      setRss(JSON.parse(podcasts));
+      setUpdating(true);
+    }
+
+    fetchData()
+      .catch(console.error);
   }, []);
 
-  if (rss.length === 0) {
+  if (!rss) {
     return (
       <div className="App">
         <div>Loading</div>
@@ -40,7 +54,7 @@ export default function App() {
           </div>
         </div>
 
-       <ReactPlayer className="mediaPlayer" url={url} 
+        <ReactPlayer className="mediaPlayer" url={url} 
           height="40px" width="100%"
           config={{
             forceAudio: true,
@@ -51,9 +65,11 @@ export default function App() {
             },
             tracks: []
           }}
-        /> 
+        />
 
-       <Podcasts items={rss.channel.item} 
+        {updating ? <div className="updating">Using cached podcast feed</div> : null}
+
+        <Podcasts items={rss.channel.item} 
           clickFunc={handleClick}
           selected={selected}/>
       </div>
