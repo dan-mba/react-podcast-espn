@@ -8,7 +8,7 @@ export default function App() {
   let [url, setUrl] = useState('');
   let [selected, setSelected] = useState(-1);
   
-  const { isLoading, error, data: {rss} } = useQuery({
+  const { isLoading, error, data } = useQuery({
     queryKey: ["espnPodcasts"],
     queryFn: async () =>  {
       const data = await fetch('https://flannel-glade.glitch.me/?' + new URLSearchParams({
@@ -18,6 +18,8 @@ export default function App() {
       return rss;
     }
   });
+
+  const rss = data?.rss
 
   function handleClick(url, selectedItem) {
     setUrl(url)
