@@ -64,7 +64,8 @@ export default function App() {
 
       <Podcasts items={rss.channel.item} 
         clickFunc={handleClick}
-        selected={selected}/>
+        selected={selected}
+      />
     </div>
   );
 
