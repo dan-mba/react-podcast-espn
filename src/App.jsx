@@ -62,8 +62,6 @@ export default function App() {
         }}
       />
 
-      {/*updating ? <div className="updating">Using cached podcast feed</div> : null*/}
-
       <Podcasts items={rss.channel.item} 
         clickFunc={handleClick}
         selected={selected}/>
