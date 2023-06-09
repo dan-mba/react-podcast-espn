@@ -8,7 +8,7 @@ export default function App() {
   let [url, setUrl] = useState('');
   let [selected, setSelected] = useState(-1);
   
-  const { isLoading, error, data } = useQuery({
+  const { isLoading, isFetching, error, data } = useQuery({
     queryKey: ["espnPodcasts"],
     queryFn: async () =>  {
       const data = await fetch('https://flannel-glade.glitch.me/?' + new URLSearchParams({
@@ -61,6 +61,8 @@ export default function App() {
           tracks: []
         }}
       />
+
+      {isFetching ? <div className="updating">Using cached podcast feed</div> : null}
 
       <Podcasts items={rss.channel.item} 
         clickFunc={handleClick}

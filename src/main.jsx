@@ -1,7 +1,6 @@
-import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { QueryClient } from '@tanstack/react-query';
-import { PersistQueryClientProvider, removeOldestQuery } from '@tanstack/react-query-persist-client';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { persistQueryClient, removeOldestQuery } from '@tanstack/react-query-persist-client';
 import { createSyncStoragePersister } from '@tanstack/query-sync-storage-persister';
 import './index.css';
 import App from './App';
@@ -22,18 +21,18 @@ const localStoragePersister = createSyncStoragePersister({
   retry: removeOldestQuery
 });
 
-const persistOptions = {
+
+persistQueryClient({
+  queryClient,
   persister: localStoragePersister,
-  maxAge: THIRTY_DAYS,
-};
+  maxAge: THIRTY_DAYS
+})
 
 
 const container = document.getElementById('root');
 const root = createRoot(container);
 root.render(
-  <StrictMode>
-    <PersistQueryClientProvider client={queryClient} persistOptions={persistOptions}>
-      <App />
-    </PersistQueryClientProvider>
-  </StrictMode>,
+  <QueryClientProvider client={queryClient}>
+    <App />
+  </QueryClientProvider>
 );
