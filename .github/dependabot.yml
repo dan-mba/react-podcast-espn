@@ -8,6 +8,10 @@ updates:
     schedule:
       interval: "weekly"
       day: "thursday"
+    groups:
+      tanstack-query:
+        patterns:
+          - "@tanstack*"
 
   - package-ecosystem: "github-actions"
     directory: "/"
