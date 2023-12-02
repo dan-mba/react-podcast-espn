@@ -2,6 +2,7 @@
   "name": "react-podcast-espn",
   "version": "0.1.0",
   "homepage": ".",
+  "type": "module",
   "private": true,
   "dependencies": {
     "@tanstack/query-sync-storage-persister": "^5.10.0",
