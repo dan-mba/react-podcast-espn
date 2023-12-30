@@ -5,9 +5,9 @@
   "type": "module",
   "private": true,
   "dependencies": {
-    "@tanstack/query-sync-storage-persister": "^5.14.2",
-    "@tanstack/react-query": "^5.15.0",
-    "@tanstack/react-query-persist-client": "^5.15.0",
+    "@tanstack/query-sync-storage-persister": "^5.15.5",
+    "@tanstack/react-query": "^5.15.5",
+    "@tanstack/react-query-persist-client": "^5.15.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-player": "^2.14.1"
@@ -22,7 +22,7 @@
   ],
   "devDependencies": {
     "@vitejs/plugin-react": "^4.2.1",
-    "eslint": "^8.45.0",
+    "eslint": "^8.56.0",
     "eslint-plugin-react": "^7.33.2",
     "vite": "^5.0.10",
     "vite-plugin-html": "^3.2.1"
