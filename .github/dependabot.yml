@@ -12,6 +12,11 @@ updates:
       tanstack-query:
         patterns:
           - "@tanstack*"
+      lint:
+        patterns:
+          - "eslint*"
+          - "@eslint*"
+          - "globals"
 
   - package-ecosystem: "github-actions"
     directory: "/"
