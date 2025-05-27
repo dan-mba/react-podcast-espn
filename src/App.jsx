@@ -11,7 +11,7 @@ export default function App() {
   const { isLoading, isFetching, error, data } = useQuery({
     queryKey: ["espnPodcasts"],
     queryFn: async () =>  {
-      const data = await fetch('https://flannel-glade.glitch.me/?' + new URLSearchParams({
+      const data = await fetch('https://rss2json-proxy-alpha.vercel.app/?' + new URLSearchParams({
         rss: 'http://www.espn.com/espnradio/feeds/rss/podcast.xml?id=2942325'
       }).toString())
       const rss = await data.json();
