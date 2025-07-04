@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import ReactPlayer from 'react-player/file';
+import ReactPlayer from 'react-player';
 import Podcasts from './Podcasts';
 import './App.css';
 
 export default function App() {
-  let [url, setUrl] = useState('');
+  let [url, setUrl] = useState(null);
   let [selected, setSelected] = useState(-1);
   
   const { isLoading, isFetching, error, data } = useQuery({
@@ -49,17 +49,8 @@ export default function App() {
         </div>
       </div>
 
-      <ReactPlayer className="mediaPlayer" url={url} 
-        height="40px" width="100%"
-        config={{
-          forceAudio: true,
-          attributes: {
-            height: "40px",
-            width: "100%",
-            controls: true
-          },
-          tracks: []
-        }}
+      <ReactPlayer className="mediaPlayer" src={url} 
+        height="40px" width="100%" wrapper='div' controls={url !== null}
       />
 
       {isFetching ? <div className="updating">Using cached podcast feed</div> : null}
