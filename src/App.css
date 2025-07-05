@@ -1,4 +1,5 @@
 .App {
+  box-sizing: border-box;
   text-align: center;
   padding: 2%;
 }
@@ -29,7 +30,9 @@ img {
 }
 
 audio {
+  display: block;
   outline-color: #d8d8d8;
+  width: 100%;
 }
 
 .updating {
