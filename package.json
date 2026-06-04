@@ -8,8 +8,8 @@
     "@tanstack/query-sync-storage-persister": "^5.100.14",
     "@tanstack/react-query": "^5.100.14",
     "@tanstack/react-query-persist-client": "^5.100.14",
-    "react": "^19.2.6",
-    "react-dom": "^19.2.6"
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
   },
   "scripts": {
     "dev": "vite",
