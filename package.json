@@ -5,9 +5,9 @@
   "type": "module",
   "private": true,
   "dependencies": {
-    "@tanstack/query-sync-storage-persister": "^5.102.8",
-    "@tanstack/react-query": "^5.102.8",
-    "@tanstack/react-query-persist-client": "^5.102.8",
+    "@tanstack/query-sync-storage-persister": "^5.103.0",
+    "@tanstack/react-query": "^5.103.0",
+    "@tanstack/react-query-persist-client": "^5.103.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0"
   },
@@ -29,5 +29,5 @@
     "vite": "^8.3.0",
     "vite-plugin-html": "^3.2.2"
   },
-  "packageManager": "pnpm@11.20.0+sha512.9a6f330a95b66446ea088faf1521405a8a01f07fde7124cc9958dfed52d4bb436737e65b08f85f37b46fcba375092558ac51262b816844b22f63406ed166bfee"
+  "packageManager": "pnpm@12.4.2"
 }
