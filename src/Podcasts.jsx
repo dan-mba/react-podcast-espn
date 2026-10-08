@@ -20,7 +20,7 @@ export default function Podcasts({ items, selected, clickFunc }) {
 
   /* Map array of podcasts to JSX */
   const podcasts = arr.map((item, index) => 
-    <div key={index}
+    <div key={item.enclosure.$.url}
       className={selected === index ? "Selected Podcast" : "Podcast"}
       onClick={(e) => clickFunc(item.enclosure.$.url, index,e)}>
       <div>{item.title}</div>
